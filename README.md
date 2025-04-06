@@ -17,12 +17,15 @@ sneaker-brand-detection/
 │   ├── nike_marathon_inference.py
 │   ├── object_tracker_v5.py
 │   └── retinanet_video.py
-├── data/                     # Sample output data (anonymized)
+├── data/                     # Sample output data (CSV only)
 │   └── IMG_0007_shoes_final.csv
+├── model_results/            # Detection visual results & dashboard
+│   ├── IMG_0007_keyframe.jpg
+│   └── dashboard.png
 ├── models/                   # Model structure (prototxt)
 │   └── MobileNetSSD_deploy.prototxt
-├── IMG_0007_keyframe.jpg     # Sample key frame from video
 └── README.md
+
 ```
 
 ## 🧠 Model Training & Improvement
@@ -31,9 +34,10 @@ The brand classifier was trained using custom-labeled sneaker images. One key ch
 To address this, we performed error analysis on our test predictions and discovered that these low-contrast examples were consistently misclassified. We then sourced and added more of these challenging examples into the training dataset, which led to a significant performance improvement in those specific cases.
 
 ## 📊 Sample Output
-- **CSV File**: Includes brand detection results across video frames.
-- **Image Output**: Annotated key frame (`IMG_0007_keyframe.jpg`) showing detected shoes and bounding boxes.
-- **(Optional)**: Output videos with detection overlays (not included here for brevity).
+- **CSV Output**: Frame-by-frame brand detection results (see `data/`)
+- **Image Results**: Annotated detection examples (see `model_results/IMG_0007_keyframe.jpg`)
+- **Dashboard**: Summary of brand distribution and athlete breakdown (see `model_results/dashboard.png`)
+- *(Optional)* Output videos with detection overlays are omitted here for brevity.
 
 ## 💻 Tech Stack
 - Python, OpenCV
